@@ -14,7 +14,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-9">
-            <nz-table #sortTablen zBordered nzTableLayout="fixed">
+            <nz-table #sortTablen  [nzData]="this.projInfo" zBordered nzTableLayout="fixed">
                 <thead>
                     <tr>
                         <th class="text-center" *ngFor="let head of headElements; let i = index"
@@ -23,11 +23,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td>0001</td>
-                        <td>Website</td>
-                        <td><img src="/assets/images/b1.jpg" alt="" class="img-fluid"></td>
-                        <td>Zebi/03110006542</td>
+                    <tr class="text-center" *ngFor="let data of this.projInfo ; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{data.projName}}</td>
+                        <td><img src="{{this.iconSrc}}{{data.projectImages[0].imgPath}}" alt="" class="img-fluid"></td>
+                        <td>{{data.clientName}}/{{data.clientContact}}</td>
                     </tr>
                 </tbody>
             </nz-table>

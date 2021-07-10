@@ -12,7 +12,7 @@ import { ProjectInfo } from '../models/project-info';
 
 
 const localUrl = 'http://localhost:8000/api';
-const localUrl1 = 'http://localhost:8000/';
+// const localUrl1 = 'http://localhost:8000/';
 @Injectable({
   providedIn: 'root'
 })
@@ -52,14 +52,27 @@ export class AuthService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Access-Control-Allow-Origin': localUrl1,
+        'Access-Control-Allow-Origin': localUrl,
         // 'x-access-token': this.tokenStorage.getToken()
       })
     };
     debugger
     return this.http.post<string>(`${localUrl}/project/upload`, info, httpOptionsSaved);
   }
-  
+  public getAllProjects() {
+    // : Observable<string>
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.get(`${localUrl}/allProjects`, httpOptionsSaved);
+    // <string>
+  }
+  // ----------------------------------------------------------------------------------
   public updateMemberRecord(info: MemberInfo): Observable<string> {
     const httpOptionsSaved = {
       headers: new HttpHeaders({

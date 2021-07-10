@@ -117,6 +117,30 @@ exports.addProject = (req, res) => {
         });
     });
 }
+exports.getAllProjects = (req, res) => {
+    console.log("[[]]]")
+    Project.findAll({
+        attributes:["projName","clientName","clientContact"],  
+            include: [{
+                model: projectImages,
+                required: true,
+                attributes: ["imgPath"],
+                where: {
+                    type: "Icon",
+                }
+            }]
+    }).then((projectsData)=>{
+        res.status(200).send({
+            data: projectsData,
+        });
+    }).catch((error) => {
+        res.status(500).send({
+            reason: 'Cant get  data',
+            error: error.error
+        });
+    })
+
+};
 exports.createMemberRecord = (req, res) => {
     Member.create({
         membershipNo: req.body.membershipNo,
@@ -585,7 +609,6 @@ exports.updateMemberRecord = (req, res) => {
         });
     });
 };
-
 exports.getMemberCnicNo = (req, res) => {
     MemberPersonal.findAll({
         attributes: ["cnic"],
@@ -724,7 +747,6 @@ exports.addTemplates=(req,res)=>{
 }
 
 exports.getAllMembers = (req, res) => {
-console.log("===",req.params);
     Member.findAll({
         attributes:[
             [sequelize.fn('count', sequelize.col('members.id')), 'totalMembers']
@@ -743,7 +765,6 @@ console.log("===",req.params);
                     attributes: ["id", "memberId", "type", "imgPath"],
                     where: {
                         type: "profile",
-                        //    memberId: Member.id,
                     }
                 }]
         }).then((membersData)=>{
@@ -754,10 +775,6 @@ console.log("===",req.params);
         }).catch(()=>{
 
         })
-        // res.status(200).send({
-        //     data: member
-        // });
-        // console.log("dsd", data);
     }).catch((error) => {
         res.status(500).send({
             reason: 'Cant get members data',
@@ -766,21 +783,6 @@ console.log("===",req.params);
     })
 
 };
-// limit: parseInt(req.params.limit),
-        // offset:parseInt(req.params.offset),
-// order: [
-//     ["id", "ASC"]
-// ],
-// include: [{
-//     model: MemberImage,
-//     required: false,
-//     attributes: ["id", "memberId", "type", "imgPath"],
-
-//     where: {
-//         type: "profile",
-//         //    memberId: Member.id,
-//     }
-// }]
 
 exports.viewMembersData = (req, res) => {
     console.log(req.body.id);
