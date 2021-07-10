@@ -120,7 +120,7 @@ exports.addProject = (req, res) => {
 exports.getAllProjects = (req, res) => {
     console.log("[[]]]")
     Project.findAll({
-        attributes:["projName","clientName","clientContact"],  
+        // attributes:["projName","clientName","clientContact"],  
             include: [{
                 model: projectImages,
                 required: true,

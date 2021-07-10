@@ -14,12 +14,12 @@
 }
 
 ::ng-deep .ant-tabs-ink-bar {
-  background-color: #ac0b3d;
+  background-color: #001529;
 }
 
 ::ng-deep .ant-tabs-nav .ant-tabs-tab-active,
 ::ng-deep .ant-tabs-nav .ant-tabs-tab:hover {
-  color: #ac0b3d
+  color: #001529
 }
 nz-tabset{
   margin-top: -60px !important;

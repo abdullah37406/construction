@@ -1,29 +1,12 @@
 <div class="row mt-3">
-    <div class="col-12">
+    <div class="col-md-12">
         <div id="all">
-            <div class="row">
-                <div class="col-md-3 col-12" (click)="carousel()">
-                    <img src="/assets/images/b1.jpg" alt="">
+            <div class="row" *ngFor="let data of this.projInfo">
+                <div class="col-md-3 bg-danger col-12" (click)="carousel()">
+                    <img src="{{this.iconSrc}}{{data.projectImages[0].imgPath}}">
                     <div class="overlay">
-                        <div class="text">Hello World1</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-12 bg-dark">
-                    <img src="/assets/images/b2.jpg" alt="">
-                    <div class="overlay">
-                        <div class="text">Hello World2</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-12">
-                    <img src="/assets/images/b3.jpg" alt="">
-                    <div class="overlay">
-                        <div class="text">Hello World3</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-12">
-                    <img src="/assets/images/b4.jpg" alt="">
-                    <div class="overlay">
-                        <div class="text">Hello World4</div>
+                        <div class="text">{{data.projName}}</div>
+                        <div class="text1">{{data.projDescription}}</div>
                     </div>
                 </div>
             </div>
