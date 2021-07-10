@@ -1,0 +1,14 @@
+::ng-deep .ant-radio-checked .ant-radio-inner{
+    border-color: #64306D !important ;
+  }
+  
+  ::ng-deep  .ant-radio-checked .ant-radio-inner:after{
+    background-color: #64306D;
+  }
+  
+  ::ng-deep .ant-radio:hover .ant-radio-inner {
+    border-color: #64306D ;
+  }
+  ::ng-deep .ant-radio-checked .ant-radio-inner:focus{
+    border-color: #64306D;
+  }

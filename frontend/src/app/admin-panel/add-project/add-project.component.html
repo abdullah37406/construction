@@ -1,0 +1,126 @@
+<div class="container-fluid mainDiv">
+    <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="projUploadingForm" #myform="ngForm">
+
+        <div class="row justify-content-center">
+            <div class="col-12 p-0">
+                <h1>Add New Project</h1>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6 text-left">
+                <div>
+                    <label>Project Name</label>
+                    <input class="input-boxes" nz-input placeholder="Project Name..." [formControl]="form.projName" />
+                    <mdb-error
+                        *ngIf="form.projName.invalid && (form.projName.dirty || form.projName.touched || myform.submitted)">
+                        {{ getprojNameError() }}
+                    </mdb-error>
+                </div>
+            </div>
+            <div class="col-md-6 text-left">
+                <div>
+                    <label>Project Description</label>
+                    <input class="input-boxes" nz-input placeholder="Project Description..."
+                        [formControl]="form.projDescription" />
+                    <mdb-error
+                        *ngIf="form.projDescription.invalid && (form.projDescription.dirty || form.projDescription.touched || myform.submitted)">
+                        {{ getprojDescriptionError() }}
+                    </mdb-error>
+                </div>
+            </div>
+            <div class="col-md-6 text-left">
+                <label>Client Name</label>
+                <input class="input-boxes" nz-input placeholder="Client Name..." [formControl]="form.clientName" />
+                <mdb-error
+                    *ngIf="form.clientName.invalid && (form.clientName.dirty || form.clientName.touched || myform.submitted)">
+                    {{ getclientNameError() }}
+                </mdb-error>
+            </div>
+            <div class="col-md-6 text-left">
+                <label>Client Contact</label>
+                <input class="input-boxes" nz-input placeholder="Client Contact..." [formControl]="form.clientContact"
+                    [textMask]="{mask: phonemask}" />
+                <mdb-error
+                    *ngIf="form.clientContact.invalid && (form.clientContact.dirty || form.clientContact.touched || myform.submitted)">
+                    {{ getclientContactError() }}
+                </mdb-error>
+            </div>
+        </div>
+        <div class="row mt-2 justify-content-center">
+            <div class="col-md-6">
+                <h4>Project Category</h4>
+                <nz-select nzShowSearch nzAllowClear [formControl]="form.projCategory"
+                    (ngModelChange)="SelectedProjCategory($event)" nzPlaceHolder="select project Category">
+                    <nz-option *ngFor="let cat of category" [nzLabel]="cat" [nzValue]="cat"></nz-option>
+                </nz-select>
+                <mdb-error
+                    *ngIf="form.projCategory.invalid && (form.projCategory.dirty || form.projCategory.touched || myform.submitted)">
+                    {{ getprojCategoryError() }}
+                </mdb-error>
+            </div>
+            <div class="col-md-3">
+                <h4>Select Icon</h4>
+                <div class="input-group">
+                    <div class="clearfix">
+                        <nz-upload [nzRemove]="onRemove1" [nzBeforeUpload]="beforeUpload1" nzListType="picture-card"
+                            [(nzFileList)]="fileList1" [nzShowButton]="fileList1.length < 1"
+                            [nzPreview]="handlePreview1">
+                            <div>
+                                <i nz-icon nzType="plus"></i>
+                                <div style="margin-top: 8px">Upload</div>
+                            </div>
+                        </nz-upload>
+                        <nz-modal [nzVisible]="previewVisible1" [nzContent]="modalContent" ngDefaultControl
+                            (nzOnCancel)="previewVisible1 = false">
+                            <ng-template #modalContent>
+                                <img [src]="previewImage1" [ngStyle]="{ width: '100%' }" />
+                            </ng-template>
+                        </nz-modal>
+                    </div>
+                    <mdb-error
+                        *ngIf="form.projIcon.invalid && (form.projIcon.dirty || form.projIcon.touched || myform.submitted)">
+                        {{ getprojIconError() }}
+                    </mdb-error>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h4>Select Images</h4>
+                <div class="input-group">
+                    <div class="clearfix">
+                        <nz-upload [nzRemove]="onRemove" nzMultiple [nzBeforeUpload]="beforeUpload"
+                            nzListType="picture-card" [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 4"
+                            [nzPreview]="handlePreview">
+                            <div>
+                                <i nz-icon nzType="plus"></i>
+                                <div style="margin-top: 8px">Upload</div>
+                            </div>
+                        </nz-upload>
+                        <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" ngDefaultControl
+                            (nzOnCancel)="previewVisible = false">
+                            <ng-template #modalContent>
+                                <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+                            </ng-template>
+                        </nz-modal>
+                    </div>
+                    <mdb-error
+                        *ngIf="form.projImages.invalid && (form.projImages.dirty || form.projImages.touched || myform.submitted)">
+                        {{ getprojImagesError() }}
+                    </mdb-error>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h4>About Project</h4>
+                <angular-editor [formControl]="form.projDetail" [config]="editorConfig"></angular-editor>
+                <mdb-error
+                    *ngIf="form.projDetail.invalid && (form.projDetail.dirty || form.projDetail.touched || myform.submitted)">
+                    {{ getprojDetailError() }}
+                </mdb-error>
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-md-2">
+                <button type="submit" mdbBtn mdbWavesEffect class="button">Upload..!</button>
+            </div>
+        </div>
+    </form>
+</div>

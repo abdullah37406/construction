@@ -1,0 +1,40 @@
+<div class="container login-page">
+  <div class="row justify-content-center h-100">
+    <div class="col-md-6 align-self-center">
+        <div class="card login-card">
+            <div class="card-body">
+              <div class="card-text">
+                <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()" #myform="ngForm">
+
+                  <div class="input-group user-box">
+                    <span class="icon-input">
+                      <i class="fas fa-user-circle fa-3x"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Enter Email" [formControl]="this.form.email"/>
+
+                  </div>
+                  <mdb-error *ngIf="form.email.invalid && (form.email.dirty || form.email.touched || myform.submitted)">{{ getEmailError() }}
+                    </mdb-error>
+                  <div class="input-group">
+                    <span class="icon-input password-box">
+                      <i class="fa fa-lock fa-3x"></i>
+                    </span>
+                    <input type="password" class="form-control" placeholder="Enter Password" [formControl]="this.form.password"/>
+
+                  </div>
+                  <mdb-error *ngIf="form.password.invalid && (form.password.dirty || form.password.touched || myform.submitted)">{{ getPasswordError() }}
+                    </mdb-error>
+                  <div class="col-md-12 btn-section h-100">
+                    <div class="row justify-content-center">
+                        <button type="submit" class="btn-warning" mdbBtn color="purple" mdbWavesEffect>Login</button>
+                    </div>
+
+                  </div>
+
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

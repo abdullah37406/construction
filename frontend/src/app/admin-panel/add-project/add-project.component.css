@@ -1,0 +1,51 @@
+.mainDiv {
+  /* background-color: #eff5fa; */
+  min-height: calc(100vh + auto);
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 450;
+  background-color: #001529;
+  color: #fff;
+  padding: 8px 0;
+}
+
+label {
+  font-weight: 300;
+  background-color: #001529;
+  color: #fff;
+  padding: 5px 10px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  border-radius: 3px;
+}
+
+h4 {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 350;
+  margin-top: 10px;
+  background-color: #001529;
+  color: #fff;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.input-boxes {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #d3d7da;
+  padding-left: 30px;
+}
+nz-select{
+  width: 100%;
+}
+::ng-deep .angular-editor-toolbar{
+  text-align: left;
+ 
+}
+::ng-deep  .angular-editor-wrapper{
+  text-align: left;
+}

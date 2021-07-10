@@ -1,0 +1,56 @@
+.login-page {
+  height: 100vh;
+}
+
+.login-card {
+
+  border: 5px #64306D solid;
+  box-shadow: 50px 50px 10px #64306D;
+}
+.btn-primary, .btn-secondary {
+  border: 0px;
+  border-bottom: 5px #9862A0 solid;
+}
+.password-box {
+  padding-left: 3px !important;
+}
+
+input{
+  border:none;
+  height: 60px;
+  background-color: transparent;
+  color: #64306D;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: 2px #64306D !important;
+}
+.icon-input {
+    background: #64306D;
+    padding: 0px;
+    height: 60px;
+    width: 60px;
+}
+.fa-user-circle, .fa-lock{
+  padding: 5px;
+  color: white;
+}
+.selector {
+    font-size: 25px !important;
+}
+.btn-section {
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
+.btn-warning {
+    height: 60px !important;
+    font-size: 25px;
+    background: #64306D !important;
+}
+.input-group{
+  border: 1px #64306D solid;
+  margin-top: 60px;
+  /* padding: 10px; */
+}

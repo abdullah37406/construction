@@ -1,0 +1,69 @@
+.col-md-3 {
+  padding: 0;
+}
+
+img {
+  height: 270px;
+  width: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #ac0b3d;
+}
+
+.col-md-3:hover .overlay,
+.over:hover .overlay {
+  opacity: 0.9;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+
+}
+#specific{
+  height: 0;
+}
+.col-md-6{
+  padding: 0;
+}
+.autoHeight{
+  height:  100% !important;
+}
+.fa-times-circle{
+  float: right;
+  padding: 5px;
+  cursor: pointer;
+  background-color: black;
+  color: #fff;
+}
+::ng-deep .ant-carousel{
+  height: 350px;
+  
+}
+.ccc {
+  text-align: center;
+  background: #364d79 !important;
+  color: #ac0b3d;
+}
+
+::ng-deep .ant-carousel-vertical .slick-dots-left{
+  left:40px;
+}
+::ng-deep .ant-carousel .slick-dots li.slick-active button {
+  background: #ac0b3d;
+  opacity: 1;
+}

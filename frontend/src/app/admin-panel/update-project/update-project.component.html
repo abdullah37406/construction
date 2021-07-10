@@ -1,0 +1,36 @@
+<div class="container-fluid mainDiv">
+    <div class="row justify-content-center">
+        <div class="col-12 p-0">
+            <h1>Edit Project</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="md-form">
+                <input type="text" #searchText nz-input placeholder="Search Project" Green class="search"
+                    (keyup)="search(searchText.value)" />
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <nz-table #sortTablen zBordered nzTableLayout="fixed">
+                <thead>
+                    <tr>
+                        <th class="text-center" *ngFor="let head of headElements; let i = index"
+                            [sortBy]="headElements[i]" scope="col">{{head | titlecase}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td>0001</td>
+                        <td>Website</td>
+                        <td><img src="/assets/images/b1.jpg" alt="" class="img-fluid"></td>
+                        <td>Zebi/03110006542</td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </div>
+    </div>
+</div>

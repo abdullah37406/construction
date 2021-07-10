@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 p-0">
+            <ul nz-menu nzMode="inline" style="width: 100%; min-height: 100vh;" [nzTheme]=" 'dark' " class="sideBar">
+                <li nz-submenu nzOpen nzTitle="Projects" nzIcon="fund-projection-screen">
+                    <ul>
+                        <li nz-menu-item [routerLink]="['addProject/']" nzSelected>Add Project</li>
+                        <li nz-menu-item [routerLink]="['updateProject/']" >Edit Project</li>
+                    </ul>
+                </li>
+                <li nz-submenu nzTitle="About Section" nzIcon="appstore">
+                    <ul>
+                        <li nz-menu-item >About Us</li>
+                        <li nz-menu-item>Our Approch</li>
+                        <li nz-menu-item>Our History</li>
+                        <li nz-menu-item>Our Services</li>
+                    </ul>
+                </li>
+                <li nz-submenu nzTitle="Expertise Section" nzIcon="setting">
+                    <ul>
+                        <li nz-menu-item>Add Expertise</li>
+                        <li nz-menu-item>Edit Expertise</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10 p-0">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

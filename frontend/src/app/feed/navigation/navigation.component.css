@@ -1,0 +1,31 @@
+
+::ng-deep .ant-tabs-bar {
+  border: none;
+  text-align: end;
+}
+
+::ng-deep .ant-tabs-nav-scroll {
+  text-align: end;
+}
+
+::ng-deep .ant-tabs-nav {
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+::ng-deep .ant-tabs-ink-bar {
+  background-color: #ac0b3d;
+}
+
+::ng-deep .ant-tabs-nav .ant-tabs-tab-active,
+::ng-deep .ant-tabs-nav .ant-tabs-tab:hover {
+  color: #ac0b3d
+}
+nz-tabset{
+  margin-top: -60px !important;
+}
+img{
+  margin-top: 30px;
+  height: 60px;
+  margin-left: 20px;
+}
