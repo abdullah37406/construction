@@ -16,9 +16,16 @@ export class ProjectsComponent implements OnInit {
   ) { }
   searchText: string = '';
   projInfo: ProjectInfo[] = [];
+  oneProjInfo =new ProjectInfo();
+  projId = new ProjectInfo();
   iconSrc = "http://localhost:8000/profilePicture/";
-  
+  imagesArray = [];
+  dotPosition = 'left';
+  projDetail="";
   ngOnInit(): void {
+    this.getProjects();
+  }
+  getProjects() {
     this.Jarwis.getAllProjects().subscribe(
       data => this.handleData(data),
       error => this.handleError(error)
@@ -26,7 +33,6 @@ export class ProjectsComponent implements OnInit {
   }
   handleData(data) {
     this.projInfo = data.data;
-    debugger
   }
   handleError(error) {
     this.snotifyService.clear();
@@ -34,21 +40,40 @@ export class ProjectsComponent implements OnInit {
       closeButton: true,
     });
   }
-  array = ["b1.jpg", "b2.jpg","b3.jpg","b4.jpg"];
-  dotPosition = 'left';
- 
-  carousel(){
-    let x= document.getElementById("all");
-    x.style.display="none";
+  carousel(id) {
+    this.imagesArray=[];
+    this.projId.id = id
+    this.Jarwis.getOneProjects(this.projId).subscribe(
+      data => this.handleOneData(data),
+      error => this.handleOneError(error)
+    );
+    let x = document.getElementById("all");
+    x.style.display = "none";
 
-    let y= document.getElementById("specific");
-    y.style.height="auto";
+    let y = document.getElementById("specific");
+    y.style.height = "auto";
   }
-  close(){
-    let x= document.getElementById("all");
-    x.style.display="block";
+  handleOneData(data) {
+    this.oneProjInfo = data.data;
+    this.oneProjInfo.imageData = data.data.projectImages;
+    this.oneProjInfo.imageData.forEach(element => {
+      this.imagesArray.push(element.imgPath)
+    });
+  }
+  handleOneError(error) {
+    this.snotifyService.clear();
+    this.snotifyService.error('Unable to get Data', '', {
+      closeButton: true,
+    });
+  }
+  close() {
+    this.imagesArray=[];
+    this.getProjects();
 
-    let y= document.getElementById("specific");
-    y.style.height="0";
+    let x = document.getElementById("all");
+    x.style.display = "block";
+
+    let y = document.getElementById("specific");
+    y.style.height = "0";
   }
 }

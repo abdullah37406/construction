@@ -56,7 +56,6 @@ export class AuthService {
         // 'x-access-token': this.tokenStorage.getToken()
       })
     };
-    debugger
     return this.http.post<string>(`${localUrl}/project/upload`, info, httpOptionsSaved);
   }
   public getAllProjects() {
@@ -71,6 +70,17 @@ export class AuthService {
     };
     return this.http.get(`${localUrl}/allProjects`, httpOptionsSaved);
     // <string>
+  }
+  public getOneProjects(info: ProjectInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.post<string>(`${localUrl}/getOneProject`, info, httpOptionsSaved);
   }
   // ----------------------------------------------------------------------------------
   public updateMemberRecord(info: MemberInfo): Observable<string> {

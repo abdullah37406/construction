@@ -22,25 +22,30 @@ img {
 }
 
 .col-md-3:hover .overlay,
+.specificCol6:hover .overlay,
 .over:hover .overlay {
   opacity: 0.9;
 }
 
 .text {
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   position: absolute;
   top: 5%;
   left: 10%;
+  font-weight: 200;
+  text-transform: uppercase;
+
 }
 
 .text1 {
   color: white;
-  font-size: 20px;
+  font-size: 13px;
   position: absolute;
-  top: 20%;
-  left: 10%;
-  font-weight: 300;
+  top: 18%;
+  left: 11%;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 #specific {
@@ -81,4 +86,29 @@ img {
 ::ng-deep .ant-carousel .slick-dots li.slick-active button {
   background: #ac0b3d;
   opacity: 1;
+}
+.singleProjCabin{
+  width: 100%;
+  padding: 20px;
+}
+#projName {
+  color: rgb(26, 25, 25);
+  font-size: 24px;
+  font-weight: 200;
+  text-transform:capitalize;
+  margin-bottom: 0;
+}
+#projDesc {
+  color: rgb(26, 25, 25);
+  font-size: 19px;
+  font-weight: 200;
+  text-transform: capitalize;
+  margin-top: -3px;
+}
+#projDetail{
+  color: rgb(26, 25, 25);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-left: 2px;
 }

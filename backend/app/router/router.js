@@ -23,9 +23,8 @@ module.exports = function(app) {
     app.get("/api/:offset/:limit/members", [authJwt.verifyToken], controller.getAllMembers); //[authJwt.verifyToken],
     app.post('/api/viewMemberData', [authJwt.verifyToken], controller.viewMembersData);
     app.post("/api/cardInfo/add", [authJwt.verifyToken], controller.updateCardInfo); //[authJwt.verifyToken],
-
+    
+    app.post("/api/getOneProject",  controller.getOneProjects);
     app.get("/api/allProjects", controller.getAllProjects); //[authJwt.verifyToken],
     app.post("/api/project/upload",  controller.addProject);
-
-
 }

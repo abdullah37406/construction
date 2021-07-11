@@ -141,6 +141,31 @@ exports.getAllProjects = (req, res) => {
     })
 
 };
+exports.getOneProjects = (req, res) => {
+    Project.findOne({
+        where: {
+            id: req.body.id,
+        },
+        include: [{
+                model: projectImages,
+                required: true,
+                where:{
+                    projectId:req.body.id
+                }
+            }
+        ]
+    }).then((oneProject) => {
+        res.status(200).send({
+            data: oneProject
+        });
+    }).catch((error) => {
+        res.status(500).send({
+            reason: 'Cant get specific projects data',
+            error: error.error
+        });
+    })
+
+}
 exports.createMemberRecord = (req, res) => {
     Member.create({
         membershipNo: req.body.membershipNo,

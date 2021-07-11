@@ -15,7 +15,7 @@ export class ProjectInfo {
     // memberImages : ImagesInfo[];
     constructor(){
        
-        // this.memberImages=[];
+        this.imageData=[];
        
     }
 }
