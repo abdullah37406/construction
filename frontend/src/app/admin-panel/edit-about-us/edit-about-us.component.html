@@ -1,1 +1,50 @@
-<p>edit-about-us works!</p>
+<div class="container-fluid text-center">
+    <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="editAboutSectionForm" #myform="ngForm">
+    <div class="row">
+        <div class="col-12 p-0">
+            <h1 *ngIf="this.condition=='aboutUs'">Edit About Us Section</h1>
+            <h1 *ngIf="this.condition=='ourApproch'">Edit Our Approch Section</h1>
+            <h1 *ngIf="this.condition=='ourHistory'">Edit Our History Section</h1>
+            <h1 *ngIf="this.condition=='ourServices'">Edit Our Services Section</h1>
+        </div>
+        <div class="col-md-6">
+            <h4>Select Image</h4>
+            <div class="input-group w-100  d-flex justify-content-center ">
+                <div class="clearfix">
+                    <nz-upload [nzRemove]="onRemove" nzMultiple [nzBeforeUpload]="beforeUpload"
+                        nzListType="picture-card" [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 1"
+                        [nzPreview]="handlePreview">
+                        <div>
+                            <i nz-icon nzType="plus"></i>
+                            <div style="margin-top: 8px">Upload</div>
+                        </div>
+                    </nz-upload>
+                    <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" ngDefaultControl
+                        (nzOnCancel)="previewVisible = false">
+                        <ng-template #modalContent>
+                            <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+                        </ng-template>
+                    </nz-modal>
+                </div>
+                <mdb-error
+                    *ngIf="form.sideImage.invalid && (form.sideImage.dirty || form.sideImage.touched || myform.submitted)">
+                    {{ getSideImageError() }}
+                </mdb-error>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Detail</h4>
+            <angular-editor [formControl]="form.detail" [config]="editorConfig"></angular-editor>
+            <mdb-error
+                *ngIf="form.detail.invalid && (form.detail.dirty || form.detail.touched || myform.submitted)">
+                {{ getDetailError() }}
+            </mdb-error>
+        </div>
+    </div>
+    <div class="row mt-3 justify-content-center">
+        <div class="col-md-2">
+            <button type="submit" mdbBtn mdbWavesEffect class="button">Upload..!</button>
+        </div>
+    </div>
+    </form>
+</div>

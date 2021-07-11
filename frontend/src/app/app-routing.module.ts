@@ -10,6 +10,7 @@ import { ExpertiseComponent } from './feed/expertise/expertise.component';
 import { ContactComponent } from './feed/contact/contact.component';
 import { AdminNavigationComponent } from './admin-panel/admin-navigation/admin-navigation.component';
 import { UpdateProjectComponent } from './admin-panel/update-project/update-project.component';
+import { EditAboutUsComponent } from './admin-panel/edit-about-us/edit-about-us.component';
 
 
 
@@ -55,6 +56,9 @@ const routes: Routes = [
       },
       {
         path: 'updateProject', component: UpdateProjectComponent
+      },
+      {
+        path: 'editAboutUs/:our', component: EditAboutUsComponent
       },
     ]
   },

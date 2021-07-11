@@ -4,16 +4,16 @@
             <ul nz-menu nzMode="inline" style="width: 100%; min-height: 100vh;" [nzTheme]=" 'dark' " class="sideBar">
                 <li nz-submenu nzOpen nzTitle="Projects" nzIcon="fund-projection-screen">
                     <ul>
-                        <li nz-menu-item [routerLink]="['addProject/']" nzSelected>Add Project</li>
+                        <li nz-menu-item [routerLink]="['addProject/']" >Add Project</li>
                         <li nz-menu-item [routerLink]="['updateProject/']" >Edit Project</li>
                     </ul>
                 </li>
-                <li nz-submenu nzTitle="About Section" nzIcon="appstore">
+                <li nz-submenu nzOpen nzTitle="About Section" nzIcon="appstore">
                     <ul>
-                        <li nz-menu-item >About Us</li>
-                        <li nz-menu-item>Our Approch</li>
-                        <li nz-menu-item>Our History</li>
-                        <li nz-menu-item>Our Services</li>
+                        <li nz-menu-item [routerLink]="['editAboutUs/aboutUs/']" nzSelected>About Us</li>
+                        <li nz-menu-item [routerLink]="['editAboutUs/ourApproch/']">Our Approch</li>
+                        <li nz-menu-item [routerLink]="['editAboutUs/ourHistory/']">Our History</li>
+                        <li nz-menu-item [routerLink]="['editAboutUs/ourServices/']">Our Services</li>
                     </ul>
                 </li>
                 <li nz-submenu nzTitle="Expertise Section" nzIcon="setting">
