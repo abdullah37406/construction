@@ -20,13 +20,28 @@ img {
   transition: .5s ease;
   background-color: #1890ff;
 }
-
+.overlay1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #001529;
+}
 .col-md-3:hover .overlay,
 .specificCol6:hover .overlay,
 .over:hover .overlay {
   opacity: 0.9;
 }
-
+.col-md-3:hover .overlay1,
+.specificCol6:hover .overlay1,
+.over:hover .overlay1 {
+  opacity: 0.9;
+}
 .text {
   color: white;
   font-size: 24px;
@@ -76,7 +91,7 @@ img {
 .ccc {
   text-align: center;
   background: #364d79 !important;
-  color: #ac0b3d;
+  color: #001529;
 }
 
 ::ng-deep .ant-carousel-vertical .slick-dots-left {
@@ -84,7 +99,7 @@ img {
 }
 
 ::ng-deep .ant-carousel .slick-dots li.slick-active button {
-  background: #ac0b3d;
+  background: #001529;
   opacity: 1;
 }
 .singleProjCabin{
@@ -111,4 +126,28 @@ img {
   font-weight: 400;
   text-transform: uppercase;
   padding-left: 2px;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  color: #001529;
+  font-weight: bolder;
+  height: 60px;
+  text-align: center;
+
+}
+
+/* .footer .j {
+  padding-right: 3%;
+  padding-top: 25px;
+  text-align: end;
+} */
+.footer .b {
+  text-align: center;
+  padding-right: 3%;
+  padding-top: 25px;
+  cursor: pointer;
 }

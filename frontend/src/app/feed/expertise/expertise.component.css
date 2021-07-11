@@ -1,6 +1,6 @@
 .about-sec {
   height: 250px;
-  background-color: #ac0b3d;
+  background-color: #001529;
   color: #fff;
   /* margin-left: 15px; */
 }
@@ -14,7 +14,7 @@
 }
 
 .graybg {
-  background-color: #f5f5eb;
+  background-color: #cae5f7;
   padding-bottom: 50px;
 }
 
@@ -51,7 +51,7 @@ img {
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #ac0b3d;
+  background-color: #001529;
 }
 .exp-images{
     padding: 0 !important;
@@ -74,7 +74,7 @@ img {
   bottom: 0;
   width: 100%;
   background-color: #fff;
-  color: #ac0b3d;
+  color: #001529;
   font-weight: bolder;
   height: 60px;
   text-align: center;

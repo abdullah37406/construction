@@ -39,6 +39,7 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { UpdateProjectComponent } from './admin-panel/update-project/update-project.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { EditAboutUsComponent } from './admin-panel/edit-about-us/edit-about-us.component';
 
 registerLocaleData(en);
 export function tokenGetter() {
@@ -59,7 +60,8 @@ export function tokenGetter() {
     AppComponent,
     NavigationComponent,
     AdminNavigationComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    EditAboutUsComponent
   ],
   imports: [
     AngularEditorModule ,

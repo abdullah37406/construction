@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ProjectInfo } from 'src/app/models/project-info';
@@ -9,8 +10,13 @@ import { ProjectInfo } from 'src/app/models/project-info';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  pageYoffset = 20;
+  @HostListener('window:scroll', ['$event']) onScroll(event) {
+    this.pageYoffset = window.pageYOffset;
+  }
 
   constructor(
+    private scroll: ViewportScroller,
     private Jarwis: AuthService,
     private snotifyService: ToastrService,
   ) { }
@@ -75,5 +81,8 @@ export class ProjectsComponent implements OnInit {
 
     let y = document.getElementById("specific");
     y.style.height = "0";
+  }
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 }
