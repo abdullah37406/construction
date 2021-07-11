@@ -19,17 +19,11 @@ const MemberCardInfo= db.memberCardInfo;
 
 const Project = db.project;
 const projectImages =db.projectImages;
+const AboutUs = db.aboutUs;
 
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 const { sequelize } = require('../config/db.config.js');
-
-// Member.hasMany(MemberImage, {
-//     foreignKey: 'memberId'
-// })
-// MemberImage.belongsTo(Member, {
-//     foreignKey: 'memberId'
-// })
 
 exports.signup = (req, res) => {
     User.create({
@@ -118,9 +112,7 @@ exports.addProject = (req, res) => {
     });
 }
 exports.getAllProjects = (req, res) => {
-    console.log("[[]]]")
     Project.findAll({
-        // attributes:["projName","clientName","clientContact"],  
             include: [{
                 model: projectImages,
                 required: true,
@@ -166,6 +158,40 @@ exports.getOneProjects = (req, res) => {
     })
 
 }
+exports.addAboutUsInfo = (req, res) => {
+    AboutUs.create({
+        detail:req.body.detail,
+        type:req.body.type,
+        createdBy: '1'
+    }).then((aboutUs) => {
+        newfileNames = [];
+        const files = req.body.imageData;
+        var memberMediaData = [];
+        files.forEach((data, index) => {
+            var fileName = fileUpload(data.file, data.imgPath);
+            if (fileName != "Error") {
+                var mediaFile = {
+                    aboutUsId: aboutUs.id,
+                    imgPath: fileName,
+                    type: data.type,
+                    createdBy: '1'
+                };
+                memberMediaData.push(mediaFile);
+            }
+        });
+        projectImages.bulkCreate(memberMediaData);
+        res.status(200).send({
+            msg:"Aboutus Section Updated"
+        });
+    }).catch((err) => {
+        res.status(500).send({
+            reason: err.message,
+        });
+    });
+}
+
+
+
 exports.createMemberRecord = (req, res) => {
     Member.create({
         membershipNo: req.body.membershipNo,

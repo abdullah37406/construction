@@ -9,6 +9,7 @@ import { ImagesInfo } from '../models/images-info';
 import { Template } from '../models/templates';
 import { CardInfo } from '../models/card-info';
 import { ProjectInfo } from '../models/project-info';
+import { AboutUsInfo } from '../models/aboutUs-info';
 
 
 const localUrl = 'http://localhost:8000/api';
@@ -81,6 +82,17 @@ export class AuthService {
       })
     };
     return this.http.post<string>(`${localUrl}/getOneProject`, info, httpOptionsSaved);
+  }
+  public addAboutUsInfo(info: AboutUsInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.post<string>(`${localUrl}/aboutUs/upload`, info, httpOptionsSaved);
   }
   // ----------------------------------------------------------------------------------
   public updateMemberRecord(info: MemberInfo): Observable<string> {

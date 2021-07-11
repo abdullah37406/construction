@@ -5,6 +5,8 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { NzUploadFile } from 'ng-zorro-antd';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
+import { AboutUsInfo } from 'src/app/models/aboutUs-info';
+import { ProjectImagesInfo } from 'src/app/models/projectImages-info';
 function getBase64(file: File): Promise<string | ArrayBuffer | null> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -22,6 +24,7 @@ export class EditAboutUsComponent implements OnInit {
   @ViewChild(FormGroupDirective) myForm: any;
   editAboutSectionForm: FormGroup;
   condition ;
+  aboutUs=new AboutUsInfo();
   public form = {
     sideImage: new FormControl('', [Validators.required]),
     detail: new FormControl('', [Validators.required]),
@@ -131,6 +134,37 @@ export class EditAboutUsComponent implements OnInit {
     if(this.editAboutSectionForm.invalid){
       return
     }
+    this.aboutUs.detail=this.form.detail.value;
+    this.aboutUs.type=this.condition;
+    
+    this.aboutUs.imageData = [];
+    this.fileList.forEach(file => {
+      let imgData = new ProjectImagesInfo();
+      imgData.file = file.preview;
+      imgData.imgPath = file.name;
+      imgData.type = this.condition;
+      this.aboutUs.imageData.push(imgData);
+    });
+    debugger
+    this.Jarwis.addAboutUsInfo(this.aboutUs).subscribe(
+      data => this.handleData(data),
+      error => this.handleError(error)
+    )
+  }
+  handleData(data){
+    this.myForm.resetForm();
+    this.fileList=[];
+    this.snotifyService.clear();
+    this.snotifyService.success("Project Added", "", {
+      timeOut: 2000,
+      closeButton: true,
+    });
+  }
+  handleError(error){
+    this.snotifyService.clear();
+    this.snotifyService.error(error.error.reason, '', {
+      closeButton: true,
+    });
   }
   getSideImageError() {
     return this.form.detail.hasError('required') ? 'You must enter details' : '';

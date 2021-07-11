@@ -2,7 +2,7 @@ module.exports = (sequelize, Sequelize) => {
     const ProjectImages = sequelize.define('projectImages', {
         projectId: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            allowNull: true,
             references: {
                 model: 'projects',
                 key: 'id',
@@ -14,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         type: {
             type: Sequelize.ENUM,
-            values: ['Icon', 'Carousel'],
+            values: ['Icon', 'Carousel','Aboutus','Services','History','Approch'],
             allowNull: false
 
         },
@@ -25,7 +25,15 @@ module.exports = (sequelize, Sequelize) => {
                 model: 'users',
                 key: 'id',
             }
-        }
+        },
+        aboutUsId: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'aboutUs',
+                key: 'id',
+            }
+        },
     });
     return ProjectImages;
 };

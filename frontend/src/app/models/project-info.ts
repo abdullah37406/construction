@@ -7,15 +7,10 @@ export class ProjectInfo {
     clientName: string;
     clientContact: string;
     projDetail: string;
-    // iconImgPath: string;
     projCategory: string;
     createdBy: number;
     imageData : ProjectImagesInfo[];
-
-    // memberImages : ImagesInfo[];
     constructor(){
-       
         this.imageData=[];
-       
     }
 }

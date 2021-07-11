@@ -33,6 +33,7 @@ db.memberWorkDetail = require('../model/memberWorkDetail.model.js')(sequelize, S
 
 db.project = require('../model/projects.model.js')(sequelize, Sequelize);
 db.projectImages = require('../model/projectImages.model.js')(sequelize, Sequelize);
+db.aboutUs = require('../model/aboutUs.model.js')(sequelize, Sequelize);
 
 
 db.member.belongsTo(db.user, {
@@ -101,11 +102,17 @@ db.memberWorkDetail.belongsTo(db.member, {
 db.member.hasOne(db.memberWorkDetail, {
     foreignKey: "memberId",
 });
-
+// --------------------------------------------------------
 db.projectImages.belongsTo(db.project, {
     foreignKey: "projectId",
 });
 db.project.hasMany(db.projectImages, {
     foreignKey: "projectId",
+});
+db.projectImages.belongsTo(db.aboutUs, {
+    foreignKey: "aboutUsId",
+});
+db.aboutUs.hasMany(db.projectImages, {
+    foreignKey: "aboutUsId",
 });
 module.exports = db;
