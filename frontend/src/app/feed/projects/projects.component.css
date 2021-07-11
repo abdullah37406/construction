@@ -127,6 +127,9 @@ img {
   text-transform: uppercase;
   padding-left: 2px;
 }
+#modal-con{
+  width: 100%;
+}
 .footer {
   position: fixed;
   left: 0;

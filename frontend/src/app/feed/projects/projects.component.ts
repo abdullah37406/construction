@@ -22,12 +22,12 @@ export class ProjectsComponent implements OnInit {
   ) { }
   searchText: string = '';
   projInfo: ProjectInfo[] = [];
-  oneProjInfo =new ProjectInfo();
+  oneProjInfo = new ProjectInfo();
   projId = new ProjectInfo();
   iconSrc = "http://localhost:8000/profilePicture/";
   imagesArray = [];
   dotPosition = 'left';
-  projDetail="";
+  projDetail = "";
   ngOnInit(): void {
     this.getProjects();
   }
@@ -47,7 +47,11 @@ export class ProjectsComponent implements OnInit {
     });
   }
   carousel(id) {
-    this.imagesArray=[];
+    this.imagesArray = [];
+    if (document.getElementById("projDetail")) {
+      var del = document.getElementById("projDetail");
+      del.remove();
+    }
     this.projId.id = id
     this.Jarwis.getOneProjects(this.projId).subscribe(
       data => this.handleOneData(data),
@@ -65,6 +69,11 @@ export class ProjectsComponent implements OnInit {
     this.oneProjInfo.imageData.forEach(element => {
       this.imagesArray.push(element.imgPath)
     });
+    var modalcon = document.getElementById("modal-con");
+    var div = document.createElement('div');
+    div.innerHTML = this.oneProjInfo.projDetail;
+    div.id = "projDetail";
+    modalcon.appendChild(div);
   }
   handleOneError(error) {
     this.snotifyService.clear();
@@ -73,7 +82,9 @@ export class ProjectsComponent implements OnInit {
     });
   }
   close() {
-    this.imagesArray=[];
+    this.imagesArray = [];
+    var del = document.getElementById("projDetail");
+    del.remove();
     this.getProjects();
 
     let x = document.getElementById("all");
