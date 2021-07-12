@@ -1,0 +1,20 @@
+.mainDiv {
+    /* background-color: #eff5fa; */
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  h1 {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: 450;
+    background-color: #001529;
+    color: #fff;
+    padding: 8px 0;
+  }
+  .search{
+    border-bottom: 1px solid #001529 !important;
+  }
+  ::ng-deep .ant-table-thead>tr>th{
+    background-color: #001529 !important;
+    color: #fff !important;
+  }

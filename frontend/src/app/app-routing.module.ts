@@ -11,6 +11,7 @@ import { ContactComponent } from './feed/contact/contact.component';
 import { AdminNavigationComponent } from './admin-panel/admin-navigation/admin-navigation.component';
 import { UpdateProjectComponent } from './admin-panel/update-project/update-project.component';
 import { EditAboutUsComponent } from './admin-panel/edit-about-us/edit-about-us.component';
+import { AllProjectsComponent } from './admin-panel/all-projects/all-projects.component';
 
 
 
@@ -55,7 +56,10 @@ const routes: Routes = [
         path: 'addProject', component: AddProjectComponent
       },
       {
-        path: 'updateProject', component: UpdateProjectComponent
+        path: 'updateProject/:id', component: UpdateProjectComponent
+      },
+      {
+        path: 'allProject', component: AllProjectsComponent
       },
       {
         path: 'editAboutUs/:our', component: EditAboutUsComponent

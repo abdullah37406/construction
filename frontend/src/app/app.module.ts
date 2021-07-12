@@ -40,6 +40,7 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { UpdateProjectComponent } from './admin-panel/update-project/update-project.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { EditAboutUsComponent } from './admin-panel/edit-about-us/edit-about-us.component';
+import { AllProjectsComponent } from './admin-panel/all-projects/all-projects.component';
 
 registerLocaleData(en);
 export function tokenGetter() {
@@ -61,7 +62,8 @@ export function tokenGetter() {
     NavigationComponent,
     AdminNavigationComponent,
     UpdateProjectComponent,
-    EditAboutUsComponent
+    EditAboutUsComponent,
+    AllProjectsComponent
   ],
   imports: [
     AngularEditorModule ,

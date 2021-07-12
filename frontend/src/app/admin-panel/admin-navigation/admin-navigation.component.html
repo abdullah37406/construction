@@ -2,21 +2,21 @@
     <div class="row">
         <div class="col-md-2 p-0">
             <ul nz-menu nzMode="inline" style="width: 100%; min-height: 100vh;" [nzTheme]=" 'dark' " class="sideBar">
-                <li nz-submenu nzOpen nzTitle="Projects" nzIcon="fund-projection-screen">
+                <li nz-submenu nzTitle="Projects" nzIcon="fund-projection-screen">
                     <ul>
-                        <li nz-menu-item [routerLink]="['addProject/']" >Add Project</li>
-                        <li nz-menu-item [routerLink]="['updateProject/']" >Edit Project</li>
+                        <li nz-menu-item [routerLink]="['addProject/']" nzSelected>Add Project</li>
+                        <li nz-menu-item [routerLink]="['allProject/']" >All Projects</li>
                     </ul>
                 </li>
-                <li nz-submenu nzOpen nzTitle="About Section" nzIcon="appstore">
+                <li nz-submenu nzTitle="About Section" nzIcon="appstore">
                     <ul>
-                        <li nz-menu-item [routerLink]="['editAboutUs/Aboutus/']" nzSelected>About Us</li>
+                        <li nz-menu-item [routerLink]="['editAboutUs/Aboutus/']">About Us</li>
                         <li nz-menu-item [routerLink]="['editAboutUs/Approch/']">Our Approch</li>
                         <li nz-menu-item [routerLink]="['editAboutUs/History/']">Our History</li>
                         <li nz-menu-item [routerLink]="['editAboutUs/Services/']">Our Services</li>
                     </ul>
                 </li>
-                <li nz-submenu nzTitle="Expertise Section" nzIcon="setting">
+                <li nz-submenu nzOpen nzTitle="Expertise Section" nzIcon="setting">
                     <ul>
                         <li nz-menu-item>Add Expertise</li>
                         <li nz-menu-item>Edit Expertise</li>
