@@ -41,6 +41,7 @@ import { UpdateProjectComponent } from './admin-panel/update-project/update-proj
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { EditAboutUsComponent } from './admin-panel/edit-about-us/edit-about-us.component';
 import { AllProjectsComponent } from './admin-panel/all-projects/all-projects.component';
+import { AddExpertiseComponent } from './admin-panel/add-expertise/add-expertise.component';
 
 registerLocaleData(en);
 export function tokenGetter() {
@@ -63,7 +64,8 @@ export function tokenGetter() {
     AdminNavigationComponent,
     UpdateProjectComponent,
     EditAboutUsComponent,
-    AllProjectsComponent
+    AllProjectsComponent,
+    AddExpertiseComponent
   ],
   imports: [
     AngularEditorModule ,
