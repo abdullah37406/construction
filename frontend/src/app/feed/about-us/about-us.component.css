@@ -40,16 +40,6 @@ ul {
   padding-inline-start: 0px;
 }
 
-.about-detail {
-  margin-top: 30px;
-  padding-left: 30px;
-  padding-right: 0 !important;
-}
-
-
-.about-detail>p {
-  font-size: 12px;
-}
 
 .about-head {
   margin-bottom: 20px;
@@ -57,11 +47,11 @@ ul {
   font-weight: 400;
 }
  
-#approach,
+/* #approach,
 #service,
 #history {
   display: none;
-}
+} */
 
 .footer {
   position: fixed;
@@ -86,4 +76,12 @@ ul {
   padding-right: 3%;
   padding-top: 25px;
   cursor: pointer;
+}
+#modal-con{
+  width: 100%;
+  margin-top: 30px !important;
+  padding-left: 30px !important;
+  padding-right: 0 !important;
+  font-size: 13px !important;
+  width: 100% !important;
 }

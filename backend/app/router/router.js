@@ -24,6 +24,7 @@ module.exports = function(app) {
     app.post('/api/viewMemberData', [authJwt.verifyToken], controller.viewMembersData);
     app.post("/api/cardInfo/add", [authJwt.verifyToken], controller.updateCardInfo); //[authJwt.verifyToken],
     
+    app.post("/api/aboutUs/get",  controller.getAboutUsInfo);
     app.post("/api/aboutUs/upload",  controller.addAboutUsInfo);
     app.post("/api/getOneProject",  controller.getOneProjects);
     app.get("/api/allProjects", controller.getAllProjects); //[authJwt.verifyToken],

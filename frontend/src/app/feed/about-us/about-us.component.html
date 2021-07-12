@@ -2,45 +2,27 @@
     <div class="col-12">
         <div class="row">
             <div class="col-md-5 col-12">
-                <img src="/assets/images/b1.jpg" alt="" class="img-fluid">
+                <img src="{{this.iconSrc}}" alt="" class="img-fluid">
             </div>
 
             <div class="col-md-5 graybg">
                 <div class="row">
                     <div class="col-6 about-sec">
-                        <p id="aboutHead" (click)="ours('about')">About us</p>
+                        <p id="headAboutus" (click)="ours('Aboutus')">About us</p>
                         <ul>
-                            <li id="approachHead" (click)="ours('approach')">Our Approch</li>
-                            <li id="historyHead" (click)="ours('history')">Our History</li>
-                            <li id="serviceHead" (click)="ours('service')">Our Services</li>
+                            <li id="headApproach" (click)="ours('Approach')">Our Approch</li>
+                            <li id="headHistory" (click)="ours('History')">Our History</li>
+                            <li id="headServices" (click)="ours('Services')">Our Services</li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
-                    <div id="about" class="col-md-7 about-detail">
-                        <p class="about-head">Transformation by design </p>
-                        <p>
-                            Our carefully considered approach to delivering projects account for every aspect of a
-                            development, ensuring that all of its facets, from lighting to landscaping, from waste
-                            management to mechanical engineering, fit together to form vibrant places where people can
-                            come
-                            together to live, work, play, and grow.Pace is a leading multidisciplinary consultancy firm
-                            based in the Middle East, providing architecture, engineering and planning services to a
-                            wide range of public and private sector clients. We are one of the region’s largest
-                            privately owned design and engineering consultancies and operate internationally.
-                        </p>
-                        <p>
-                            Whether it’s the concept for a new city, the detailed design of a rail network, a
-                            skyscraper, the design of a rail network, the modelling of a flood defence system or the
-                            improvement of a management process, we plan, design, manage and construct solutions.
-                        </p>
-                        <p>
-                            Founded in Kuwait City in 1968 and today, as one of the most trusted names in the region, we
-                            employ over 850 professionals that include architects, engineers, planners, transport
-                            engineers, project & commercial managers, interior designers and quantity surveyors.
-                        </p>
+                    <div class="col-md-7 ">
+                        <div id="modal-con">
+
+                        </div>
                     </div>
-                    <div id="approach" class="col-md-7 about-detail">
+                    <!-- <div id="approach" class="col-md-7 about-detail">
                         <p>
                             Our carefully considered approach to delivering projects account for every aspect of a
                             development, ensuring that all of its facets, from lighting to landscaping, from waste
@@ -116,7 +98,7 @@
                             bridge the gap between clients, contractors and other onsite staff to enable environments
                             where our high standards of delivery are met.
                         </p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

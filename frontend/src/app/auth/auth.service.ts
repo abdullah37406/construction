@@ -94,6 +94,17 @@ export class AuthService {
     };
     return this.http.post<string>(`${localUrl}/aboutUs/upload`, info, httpOptionsSaved);
   }
+  public getAboutUsInfo(info: AboutUsInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.post<string>(`${localUrl}/aboutUs/get`, info, httpOptionsSaved);
+  }
   // ----------------------------------------------------------------------------------
   public updateMemberRecord(info: MemberInfo): Observable<string> {
     const httpOptionsSaved = {

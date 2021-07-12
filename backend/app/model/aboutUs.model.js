@@ -1,12 +1,12 @@
 module.exports = (sequelize, Sequelize) => {
     const AboutUs = sequelize.define('aboutUs', {
         detail: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT('long'),
             allowNull: false
         },
         type: {
             type: Sequelize.ENUM,
-            values: ['Aboutus','Services','History','Approch'],
+            values: ['Aboutus','Services','History','Approach'],
             allowNull: false
 
         },

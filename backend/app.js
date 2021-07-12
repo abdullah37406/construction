@@ -13,7 +13,7 @@ require('./app/router/router.js')(app);
 const db = require('./app/config/db.config.js');
 
 
-db.sequelize.sync();
+db.sequelize.sync({alter:true});
 
 var server = app.listen(8000, function() {
 

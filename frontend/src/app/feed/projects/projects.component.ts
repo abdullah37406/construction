@@ -88,7 +88,7 @@ export class ProjectsComponent implements OnInit {
     this.getProjects();
 
     let x = document.getElementById("all");
-    x.style.display = "block";
+    x.style.display = "flex";
 
     let y = document.getElementById("specific");
     y.style.height = "0";

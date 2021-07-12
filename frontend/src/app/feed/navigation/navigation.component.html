@@ -4,17 +4,26 @@
             <img src="/assets/images/Jimg2.JPG" alt="">
             <nz-tabset>
                 <nz-tab nzTitle="Projects">
-                    <app-projects></app-projects>
+                   
+                    <ng-template nz-tab>
+                        <app-projects></app-projects>
+                    </ng-template>
                 </nz-tab>
                 <nz-tab nzTitle="About us">
-                    <app-about-us></app-about-us>
+                    <ng-template nz-tab>
+                        <app-about-us></app-about-us>
+                    </ng-template>    
                 </nz-tab>
-
                 <nz-tab nzTitle="Expertise">
-                    <app-expertise></app-expertise>
+                    <ng-template nz-tab>
+                        <app-expertise></app-expertise>
+                    </ng-template>
                 </nz-tab>
                 <nz-tab nzTitle="Contact">
-                    <app-contact></app-contact>
+                    <ng-template nz-tab>
+                        <app-contact></app-contact>
+                    </ng-template>
+                   
                 </nz-tab>
             </nz-tabset>
         </div>

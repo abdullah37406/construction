@@ -189,7 +189,33 @@ exports.addAboutUsInfo = (req, res) => {
         });
     });
 }
+exports.getAboutUsInfo = (req, res) => {
+    AboutUs.findOne({
+        attributes:["detail"],
+        where: {
+            type: req.body.type,
+        },
+        include: [{
+                model: projectImages,
+                attributes:["imgPath"],
+                required: true,
+                where:{
+                    type:req.body.type
+                }
+            }
+        ]
+    }).then((aboutusInfo) => {
+        res.status(200).send({
+            data: aboutusInfo
+        });
+    }).catch((error) => {
+        res.status(500).send({
+            reason: 'Cant get  data',
+            error: error.error
+        });
+    })
 
+}
 
 
 exports.createMemberRecord = (req, res) => {

@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         },
         projDetail: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT('long'),
             allowNull: false
         },
         projCategory: {
