@@ -167,9 +167,9 @@ export class EditAboutUsComponent implements OnInit {
     });
   }
   getSideImageError() {
-    return this.form.detail.hasError('required') ? 'You must enter details' : '';
+    return this.form.sideImage.hasError('required') ? 'You must select image' : '';
   }
   getDetailError() {
-    return this.form.sideImage.hasError('required') ? 'You must select image' : '';
+    return this.form.detail.hasError('required') ? 'You must enter details' : '';
   }
 }

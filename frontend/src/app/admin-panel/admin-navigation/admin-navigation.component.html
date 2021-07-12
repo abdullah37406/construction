@@ -4,7 +4,7 @@
             <ul nz-menu nzMode="inline" style="width: 100%; min-height: 100vh;" [nzTheme]=" 'dark' " class="sideBar">
                 <li nz-submenu nzTitle="Projects" nzIcon="fund-projection-screen">
                     <ul>
-                        <li nz-menu-item [routerLink]="['addProject/']" nzSelected>Add Project</li>
+                        <li nz-menu-item [routerLink]="['addProject/']" >Add Project</li>
                         <li nz-menu-item [routerLink]="['allProject/']" >All Projects</li>
                     </ul>
                 </li>
@@ -18,7 +18,7 @@
                 </li>
                 <li nz-submenu nzOpen nzTitle="Expertise Section" nzIcon="setting">
                     <ul>
-                        <li nz-menu-item>Add Expertise</li>
+                        <li nz-menu-item [routerLink]="['addExperty/']" nzSelected>Add Expertise</li>
                         <li nz-menu-item>Edit Expertise</li>
                     </ul>
                 </li>

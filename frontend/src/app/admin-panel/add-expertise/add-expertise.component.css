@@ -1,0 +1,29 @@
+h1 {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 450;
+  background-color: #001529;
+  color: #fff;
+  padding: 8px 0;
+}
+
+h4 {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 350;
+  margin-top: 10px;
+  background-color: #001529;
+  color: #fff;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.input-boxes {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #d3d7da;
+  padding-left: 30px;
+}
+::ng-deep .angular-editor-wrapper {
+  text-align: left !important;
+}
