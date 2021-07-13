@@ -21,6 +21,7 @@ const Project = db.project;
 const projectImages =db.projectImages;
 const AboutUs = db.aboutUs;
 const Expertise = db.expertise;
+const ExpertiseDetails = db.expertiseDetails;
 
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -217,7 +218,36 @@ exports.getAboutUsInfo = (req, res) => {
     })
 
 }
+exports.addExpertySectionDetail = (req, res) => {
+    console.log("--",req.body)
+    ExpertiseDetails.create({
+        detail:req.body.detail,
+        createdBy: '1'
+    }).then(() => {
+        res.status(200).send({
+            msg:"Details Updated"
+        });
+    }).catch((err) => {
+        res.status(500).send({
+            reason: err.message,
+        });
+    });
+}
+exports.getExpertySectionDetail = (req, res) => {
+    ExpertiseDetails.findAll({
+    
+    }).then((detailData)=>{
+        res.status(200).send({
+            data: detailData,
+        });
+    }).catch((error) => {
+        res.status(500).send({
+            reason: 'Cant get  data',
+            error: error.error
+        });
+    })
 
+};
 
 exports.createMemberRecord = (req, res) => {
     Member.create({

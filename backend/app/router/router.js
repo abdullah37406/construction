@@ -29,4 +29,8 @@ module.exports = function(app) {
     app.post("/api/getOneProject",  controller.getOneProjects);
     app.get("/api/allProjects", controller.getAllProjects); //[authJwt.verifyToken],
     app.post("/api/project/upload",  controller.addProject);
+    app.post("/api/addDetail",  controller.addExpertySectionDetail);
+    app.get("/api/getDetail",  controller.getExpertySectionDetail);
+
+
 }

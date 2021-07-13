@@ -10,6 +10,7 @@ import { Template } from '../models/templates';
 import { CardInfo } from '../models/card-info';
 import { ProjectInfo } from '../models/project-info';
 import { AboutUsInfo } from '../models/aboutUs-info';
+import { ExpertiseInfo } from '../models/expertise-info';
 
 
 const localUrl = 'http://localhost:8000/api';
@@ -104,6 +105,30 @@ export class AuthService {
       })
     };
     return this.http.post<string>(`${localUrl}/aboutUs/get`, info, httpOptionsSaved);
+  }
+  public addExpertySectionDetail(info: ExpertiseInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.post<string>(`${localUrl}/addDetail`, info, httpOptionsSaved);
+  }
+  public getExpertySectionDetail() {
+    // : Observable<string>
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.get(`${localUrl}/getDetail`, httpOptionsSaved);
+    // <string>
   }
   // ----------------------------------------------------------------------------------
   public updateMemberRecord(info: MemberInfo): Observable<string> {

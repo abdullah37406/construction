@@ -35,6 +35,7 @@ db.project = require('../model/projects.model.js')(sequelize, Sequelize);
 db.aboutUs = require('../model/aboutUs.model.js')(sequelize, Sequelize);
 db.expertise = require('../model/expertise.model.js')(sequelize, Sequelize);
 db.projectImages = require('../model/projectImages.model.js')(sequelize, Sequelize);
+db.expertiseDetails = require('../model/expertiseDetails.model.js')(sequelize, Sequelize);
 
 
 db.member.belongsTo(db.user, {

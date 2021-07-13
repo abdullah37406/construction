@@ -22,7 +22,7 @@ function getBase64(file: File): Promise<string | ArrayBuffer | null> {
 })
 export class AddExpertiseComponent implements OnInit {
 
-  @ViewChild(FormGroupDirective) myForm: any;
+  @ViewChild(FormGroupDirective) myForm1: any;
   addExpertyForm: FormGroup;
   expertySectionForm: FormGroup;
   expertyInfo = new ExpertiseInfo();
@@ -140,6 +140,10 @@ export class AddExpertiseComponent implements OnInit {
       return
     }
     this.expertyInfo.detail=this.detailForm.detail.value;
+    this.Jarwis.addExpertySectionDetail(this.expertyInfo).subscribe(
+      data => this.handleData(data),
+      error => this.handleError(error)
+    )
   }
   onSubmit() {
     if (this.addExpertyForm.invalid) {
@@ -162,10 +166,11 @@ export class AddExpertiseComponent implements OnInit {
     // )
   }
   handleData(data) {
-    this.myForm.resetForm();
+    debugger
+    this.myForm1.resetForm();
     this.fileList = [];
     this.snotifyService.clear();
-    this.snotifyService.success("Project Added", "", {
+    this.snotifyService.success(data.msg, "", {
       timeOut: 2000,
       closeButton: true,
     });

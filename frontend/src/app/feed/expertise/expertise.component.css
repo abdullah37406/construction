@@ -17,18 +17,6 @@
   background-color: #cae5f7;
   padding-bottom: 50px;
 }
-
-.about-detail {
-  margin-top: 30px;
-  padding-left: 30px;
-  padding-right: 0 !important;
-}
-
-
-.about-detail>p {
-  font-size: 12px;
-}
-
 .about-head {
   margin-bottom: 20px;
   font-size: 17px !important;
@@ -86,4 +74,11 @@ img {
   padding-right: 3%;
   padding-top: 25px;
   cursor: pointer;
+}
+#modal-con{
+  width: 100%;margin-top: 30px ;
+  padding-left: 30px ;
+  padding-right: 0  ;
+  padding-bottom: 20px;
+  /* font-size: 12px ; */
 }
