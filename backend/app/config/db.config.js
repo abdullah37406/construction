@@ -32,8 +32,9 @@ db.memberReferralInfo = require('../model/memberReferralInfo.model.js')(sequeliz
 db.memberWorkDetail = require('../model/memberWorkDetail.model.js')(sequelize, Sequelize);
 
 db.project = require('../model/projects.model.js')(sequelize, Sequelize);
-db.projectImages = require('../model/projectImages.model.js')(sequelize, Sequelize);
 db.aboutUs = require('../model/aboutUs.model.js')(sequelize, Sequelize);
+db.expertise = require('../model/expertise.model.js')(sequelize, Sequelize);
+db.projectImages = require('../model/projectImages.model.js')(sequelize, Sequelize);
 
 
 db.member.belongsTo(db.user, {
@@ -114,5 +115,11 @@ db.projectImages.belongsTo(db.aboutUs, {
 });
 db.aboutUs.hasMany(db.projectImages, {
     foreignKey: "aboutUsId",
+});
+db.projectImages.belongsTo(db.expertise, {
+    foreignKey: "expertyId",
+});
+db.expertise.hasMany(db.projectImages, {
+    foreignKey: "expertyId",
 });
 module.exports = db;

@@ -17,6 +17,22 @@ module.exports = (sequelize, Sequelize) => {
             values: ['Icon', 'Carousel','Aboutus','Services','History','Approach'],
             allowNull: false
 
+        }, 
+        aboutUsId: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'aboutUs',
+                key: 'id',
+            }
+        },
+        expertyId: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'expertises',
+                key: 'id',
+            }
         },
         createdBy: {
             type: Sequelize.INTEGER,
@@ -26,14 +42,7 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'id',
             }
         },
-        aboutUsId: {
-            type: Sequelize.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'aboutUs',
-                key: 'id',
-            }
-        },
+       
     });
     return ProjectImages;
 };

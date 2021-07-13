@@ -20,6 +20,7 @@ const MemberCardInfo= db.memberCardInfo;
 const Project = db.project;
 const projectImages =db.projectImages;
 const AboutUs = db.aboutUs;
+const Expertise = db.expertise;
 
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
