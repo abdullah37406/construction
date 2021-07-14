@@ -130,6 +130,30 @@ export class AuthService {
     return this.http.get(`${localUrl}/getDetail`, httpOptionsSaved);
     // <string>
   }
+  public addExperty(info: ExpertiseInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.post<string>(`${localUrl}/addExperty`, info, httpOptionsSaved);
+  }
+  public getAllExpertise() {
+    // : Observable<string>
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.get(`${localUrl}/getAllExpertise`, httpOptionsSaved);
+    // <string>
+  }
   // ----------------------------------------------------------------------------------
   public updateMemberRecord(info: MemberInfo): Observable<string> {
     const httpOptionsSaved = {

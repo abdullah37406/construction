@@ -26,6 +26,7 @@ export class AddExpertiseComponent implements OnInit {
   addExpertyForm: FormGroup;
   expertySectionForm: FormGroup;
   expertyInfo = new ExpertiseInfo();
+  case="case1";
   public expertyForm = {
     image: new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]),
@@ -39,7 +40,6 @@ export class AddExpertiseComponent implements OnInit {
     private snotifyService: ToastrService,
     private fb: FormBuilder,
   ) {
-    // this.condition = this.route.snapshot.params.our;
   }
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -89,16 +89,18 @@ export class AddExpertiseComponent implements OnInit {
   };
   ngOnInit(): void {
     this.createForm();
-    // this.route.paramMap.subscribe((params: ParamMap) => {
-    //   this.condition = params.get('our')
-    // })
-    debugger
-
+    this.getDetails();
   }
   createForm() {
     this.addExpertyForm = this.fb.group(this.expertyForm);
     this.expertySectionForm = this.fb.group(this.detailForm);
 
+  }
+  getDetails() {
+    this.Jarwis.getExpertySectionDetail().subscribe(
+      data => this.handleData(data),
+      error => this.handleError(error)
+    )
   }
   fileList: NzUploadFile[] = [];
   previewImage: string | undefined = '';
@@ -146,6 +148,7 @@ export class AddExpertiseComponent implements OnInit {
     )
   }
   onSubmit() {
+    this.case="case3"
     if (this.addExpertyForm.invalid) {
       return
     }
@@ -159,21 +162,24 @@ export class AddExpertiseComponent implements OnInit {
       imgData.type = this.expertyForm.type.value;
       this.expertyInfo.imageData.push(imgData);
     });
-    debugger
-    // this.Jarwis.addAboutUsInfo(this.aboutUs).subscribe(
-    //   data => this.handleData(data),
-    //   error => this.handleError(error)
-    // )
+    this.Jarwis.addExperty(this.expertyInfo).subscribe(
+      data => this.handleData(data),
+      error => this.handleError(error)
+    )
   }
   handleData(data) {
-    debugger
-    this.myForm1.resetForm();
-    this.fileList = [];
-    this.snotifyService.clear();
-    this.snotifyService.success(data.msg, "", {
-      timeOut: 2000,
-      closeButton: true,
-    });
+    if(this.case=='case1'){
+      this.detailForm.detail.setValue(data.data[0].detail);
+    }
+    else{
+      this.fileList = [];
+      this.expertyForm.type.reset();
+      this.snotifyService.clear();
+      this.snotifyService.success(data.msg, "", {
+        timeOut: 2000,
+        closeButton: true,
+      });
+    }   
   }
   handleError(error) {
     this.snotifyService.clear();

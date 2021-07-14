@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
         type: {
             type: Sequelize.ENUM,
             values: ['Icon', 'Carousel','Aboutus','Services','History','Approach'],
-            allowNull: false
+            allowNull: true
 
         }, 
         aboutUsId: {

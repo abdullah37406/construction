@@ -22,6 +22,13 @@
     <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="addExpertyForm" #myform1="ngForm">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <h4>Experty Name</h4>
+                <input class="input-boxes" nz-input placeholder="Experty Name..." [formControl]="expertyForm.type" />
+                <mdb-error *ngIf="expertyForm.type.invalid && (expertyForm.type.dirty || expertyForm.type.touched || myform1.submitted)">
+                    {{ getTypeError() }}
+                </mdb-error>
+            </div>
+            <div class="col-md-6">
                 <h4>Select Image</h4>
                 <div class="input-group w-100  d-flex justify-content-center ">
                     <div class="clearfix">
@@ -46,13 +53,7 @@
                     </mdb-error>
                 </div>
             </div>
-            <div class="col-md-6">
-                <h4>Experty Name</h4>
-                <input class="input-boxes" nz-input placeholder="Experty Name..." [formControl]="expertyForm.type" />
-                <mdb-error *ngIf="expertyForm.type.invalid && (expertyForm.type.dirty || expertyForm.type.touched || myform1.submitted)">
-                    {{ getTypeError() }}
-                </mdb-error>
-            </div>
+            
         </div>
         <div class="row mt-3 justify-content-center">
             <div class="col-md-2">

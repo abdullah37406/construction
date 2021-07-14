@@ -25,7 +25,7 @@ const ExpertiseDetails = db.expertiseDetails;
 
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
-const { sequelize } = require('../config/db.config.js');
+const { sequelize, expertise } = require('../config/db.config.js');
 
 exports.signup = (req, res) => {
     User.create({
@@ -248,6 +248,58 @@ exports.getExpertySectionDetail = (req, res) => {
     })
 
 };
+exports.addExperty = (req, res) => {
+    Expertise.create({
+        type:req.body.type,
+        createdBy: '1'
+    }).then((experty) => {
+        newfileNames = [];
+        const files = req.body.imageData;
+        var memberMediaData = [];
+        files.forEach((data, index) => {
+            var fileName = fileUpload(data.file, data.imgPath);
+            if (fileName != "Error") {
+                var mediaFile = {
+                    expertyId: experty.id,
+                    imgPath: fileName,
+                    //type: data.type,
+                    createdBy: '1'
+                };
+                memberMediaData.push(mediaFile);
+            }
+        });
+        projectImages.bulkCreate(memberMediaData);
+        res.status(200).send({
+            msg:"Experty Added"
+        });
+    }).catch((err) => {
+        res.status(500).send({
+            reason: err.message,
+        });
+    });
+}
+exports.getAllExpertise = (req, res) => {
+    Expertise.findAll({
+        include: [{
+            model: projectImages,
+            attributes:["imgPath","expertyId"],
+            required: true,
+        }
+    ]
+    }).then((expertiseData)=>{
+        res.status(200).send({
+            data: expertiseData,
+        });
+    }).catch((error) => {
+        res.status(500).send({
+            reason: 'Cant get  data',
+            error: error.error
+        });
+    })
+
+};
+
+
 
 exports.createMemberRecord = (req, res) => {
     Member.create({

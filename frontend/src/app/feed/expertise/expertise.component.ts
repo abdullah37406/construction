@@ -13,7 +13,6 @@ export class ExpertiseComponent implements OnInit {
 
   pageYoffset = 20;
   expertyInfo = new ExpertiseInfo();
-
   @HostListener('window:scroll', ['$event']) onScroll(event) {
     this.pageYoffset = window.pageYOffset;
   }
@@ -26,22 +25,33 @@ export class ExpertiseComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDetails();
-
   }
   getDetails() {
     this.Jarwis.getExpertySectionDetail().subscribe(
-      data => this.handleData(data),
+      data => this.handleDetail(data),
+      error => this.handleError(error)
+    )
+    this.getExpertise();
+  }
+  getExpertise() {
+
+    this.Jarwis.getAllExpertise().subscribe(
+      data => this.handleExpertise(data),
       error => this.handleError(error)
     )
   }
-  handleData(data) {
+  handleDetail(data) {
+    debugger
     this.expertyInfo = data.data;
     var modalcon = document.getElementById("modal-con");
     var div = document.createElement('div');
     div.innerHTML = this.expertyInfo[0].detail;
     div.id = "about-detail";
-    debugger
     modalcon.appendChild(div);
+  }
+  handleExpertise(data) {
+   this.expertyInfo=data.data;
+   debugger
   }
   handleError(error) {
     this.snotifyService.clear();
