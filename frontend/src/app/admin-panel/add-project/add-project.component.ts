@@ -4,6 +4,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { NzUploadFile } from 'ng-zorro-antd';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
+import { ExpertiseInfo } from 'src/app/models/expertise-info';
 import { ProjectInfo } from 'src/app/models/project-info';
 import { ProjectImagesInfo } from 'src/app/models/projectImages-info';
 
@@ -26,8 +27,10 @@ export class AddProjectComponent implements OnInit {
   @ViewChild(FormGroupDirective) myForm: any;
   projUploadingForm: FormGroup;
   phonemask = [/[0-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
-  category = ["Interior Design", "Architecture", "Landscape Architecture", "Engineering"];
+  category = [];
   projectInfo: ProjectInfo = new ProjectInfo();
+  expertyInfoArray: ExpertiseInfo[]=[];
+
   public form = {
     projName: new FormControl('', [Validators.required]),
     clientName: new FormControl('', [Validators.required]),
@@ -63,7 +66,21 @@ export class AddProjectComponent implements OnInit {
   }
   ngOnInit(): void {
     this.createForm();
+    this.getAllExpertise();
   }
+  getAllExpertise(){
+    this.Jarwis.getAllExpertise().subscribe(
+      data => this.handleExpertise(data),
+      error => this.handleError(error)
+    )
+  }
+  handleExpertise(data) {
+    this.expertyInfoArray=data.data; 
+    this.expertyInfoArray.forEach(el=>{
+      this.category.push(el.type);
+    })
+    debugger
+   }
   option = [];
   // memberImageData: MemberInfo = new MemberInfo();
 

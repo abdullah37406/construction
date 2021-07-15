@@ -1,6 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { element } from 'protractor';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ExpertiseInfo } from 'src/app/models/expertise-info';
 
@@ -11,8 +12,13 @@ import { ExpertiseInfo } from 'src/app/models/expertise-info';
 })
 export class ExpertiseComponent implements OnInit {
 
+  imagesArray=[];
   pageYoffset = 20;
   expertyInfo = new ExpertiseInfo();
+  expertyInfoArray: ExpertiseInfo[]=[];
+
+  imgSrc = "http://localhost:8000/profilePicture/";
+
   @HostListener('window:scroll', ['$event']) onScroll(event) {
     this.pageYoffset = window.pageYOffset;
   }
@@ -41,7 +47,6 @@ export class ExpertiseComponent implements OnInit {
     )
   }
   handleDetail(data) {
-    debugger
     this.expertyInfo = data.data;
     var modalcon = document.getElementById("modal-con");
     var div = document.createElement('div');
@@ -50,7 +55,7 @@ export class ExpertiseComponent implements OnInit {
     modalcon.appendChild(div);
   }
   handleExpertise(data) {
-   this.expertyInfo=data.data;
+   this.expertyInfoArray=data.data; 
    debugger
   }
   handleError(error) {
