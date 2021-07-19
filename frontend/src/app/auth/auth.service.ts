@@ -154,6 +154,17 @@ export class AuthService {
     return this.http.get(`${localUrl}/getAllExpertise`, httpOptionsSaved);
     // <string>
   }
+  public showExpertyProjects(data: any): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': localUrl,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.post<string>(`${localUrl}/${data}/getExprtyProjects`, httpOptionsSaved);
+  }
   // ----------------------------------------------------------------------------------
   public updateMemberRecord(info: MemberInfo): Observable<string> {
     const httpOptionsSaved = {

@@ -33,5 +33,6 @@ module.exports = function(app) {
     app.get("/api/getDetail",  controller.getExpertySectionDetail);
     app.post("/api/addExperty",  controller.addExperty);
     app.get("/api/getAllExpertise",  controller.getAllExpertise);
+    app.post("/api/:data/getExprtyProjects",  controller.showExpertyProjects);
 
 }

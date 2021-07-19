@@ -298,7 +298,30 @@ exports.getAllExpertise = (req, res) => {
     })
 
 };
+exports.showExpertyProjects = (req, res) => {
+    console.log("llllllllll",req.params)
+    Project.findAll({
+        where:{
+            projCategory:req.params.data
+        },
+        include: [{
+            model: projectImages,
+            attributes:["imgPath","expertyId"],
+            required: true,
+        }
+    ]
+    }).then((expertiseData)=>{
+        res.status(200).send({
+            data: expertiseData,
+        });
+    }).catch((error) => {
+        res.status(500).send({
+            reason: 'Cant get  data',
+            error: error.error
+        });
+    })
 
+};
 
 
 exports.createMemberRecord = (req, res) => {

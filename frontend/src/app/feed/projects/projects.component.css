@@ -67,10 +67,6 @@ img {
   height: 0;
 }
 
-/* .col-md-6 {
-  padding: 1px;
-} */
-
 .autoHeight {
   height: 100% !important;
 }
@@ -143,11 +139,7 @@ img {
 
 }
 
-/* .footer .j {
-  padding-right: 3%;
-  padding-top: 25px;
-  text-align: end;
-} */
+
 .footer .b {
   text-align: center;
   padding-right: 3%;
