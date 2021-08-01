@@ -30,6 +30,7 @@ module.exports = function(app) {
     app.get("/api/allProjects", controller.getAllProjects); //[authJwt.verifyToken],
     app.post("/api/project/upload",  controller.addProject);
     app.post("/api/addDetail",  controller.addExpertySectionDetail);
+    app.post("/api/updateDetail",  controller.updateExpertySectionDetail);
     app.get("/api/getDetail",  controller.getExpertySectionDetail);
     app.post("/api/addExperty",  controller.addExperty);
     app.get("/api/getAllExpertise",  controller.getAllExpertise);

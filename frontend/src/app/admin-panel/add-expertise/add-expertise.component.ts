@@ -142,10 +142,20 @@ export class AddExpertiseComponent implements OnInit {
       return
     }
     this.expertyInfo.detail=this.detailForm.detail.value;
-    this.Jarwis.addExpertySectionDetail(this.expertyInfo).subscribe(
-      data => this.handleData(data),
-      error => this.handleError(error)
-    )
+    if(this.case=="nowUpdateDetail"){
+      this.case="case2";
+      this.Jarwis.updateExpertySectionDetail(this.expertyInfo).subscribe(
+        data => this.handleData(data),
+        error => this.handleError(error)
+      )
+    }
+    else{
+      debugger
+      this.Jarwis.addExpertySectionDetail(this.expertyInfo).subscribe(
+        data => this.handleData(data),
+        error => this.handleError(error)
+      )
+    }    
   }
   onSubmit() {
     this.case="case3"
@@ -168,10 +178,21 @@ export class AddExpertiseComponent implements OnInit {
     )
   }
   handleData(data) {
-    if(this.case=='case1'){
+    if(this.case=='case1' && data.data.length>0){
       this.detailForm.detail.setValue(data.data[0].detail);
+      this.expertyInfo.id=data.data[0].id;
+      this.case="nowUpdateDetail";
+    }
+    if(this.case=="case2"){
+      this.case="nowUpdateDetail";
+      this.snotifyService.clear();
+      this.snotifyService.success("Details updated", "", {
+        timeOut: 2000,
+        closeButton: true,
+      });
     }
     else{
+      debugger
       this.fileList = [];
       this.expertyForm.type.reset();
       this.snotifyService.clear();

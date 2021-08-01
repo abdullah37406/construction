@@ -233,6 +233,23 @@ exports.addExpertySectionDetail = (req, res) => {
         });
     });
 }
+exports.updateExpertySectionDetail = (req, res) => {
+    ExpertiseDetails.update({
+        detail:req.body.detail,
+    },{
+        where:{
+            id:req.body.id,
+        }
+    }).then(() => {
+        res.status(200).send({
+            msg:"Details Updated"
+        });
+    }).catch((err) => {
+        res.status(500).send({
+            reason: err.message,
+        });
+    });
+}
 exports.getExpertySectionDetail = (req, res) => {
     ExpertiseDetails.findAll({
     
